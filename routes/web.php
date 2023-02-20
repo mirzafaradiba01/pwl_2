@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +22,26 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    echo "Selamat Datang";
-});
+// Route::get('/', function () {
+//     echo "Selamat Datang";
+// });
 
-Route::get('/about', function () {
-    echo "NIM : 2141720254 <br>  Nama : Mirza Priscilla Faradiba";
-});
+// Route::get('/about', function () {
+//     echo "NIM : 2141720254 <br>  Nama : Mirza Priscilla Faradiba";
+// });
 
-Route::get('/articles/{id}', function ($id) {
-    echo "Halaman Artikel Dengan ID " .$id ;
-});
+// Route::get('/articles/{id}', function ($id) {
+//     echo "Halaman Artikel Dengan ID " .$id ;
+// });
+
+// Route::get('/', [PageController::class, 'index']);
+
+// Route::get('/about', [PageController::class, 'about']);
+
+// Route::get('/articles/{id}', [PageController::class, 'show']);
+
+Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/about', [AboutController::class, 'about']);
+
+Route::get('/articles/{id}', [ArticleController::class, 'show']);
